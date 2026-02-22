@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI agent config (dev only)
+.agent/
+.gemini/
+
+# Stitch design files (dev only)
+stitch_screen.html
+stitch_correct_screen.html
