@@ -1,0 +1,30 @@
+.contactSection {
+    padding: 6rem 0;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.action {
+    margin-top: 1rem;
+}
