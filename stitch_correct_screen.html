@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio Home - Andre Muniz</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "bubble-cyan": "#00E5FF",
+                        "bubble-dark": "#0a1f25",
+                        "ai-purple": "#A855F7",
+                        "ai-dark": "#1a0b2e",
+                        "dark-bg": "#0B0C10",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-surface": "rgba(255, 255, 255, 0.03)",
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "sans-serif"],
+                        "body": ["Outfit", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'gradient-bubble': 'linear-gradient(135deg, rgba(0,229,255,0.15) 0%, rgba(10,31,37,0) 50%)',
+                        'gradient-ai': 'linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(26,11,46,0) 50%)',
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E\")",
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 20px -5px rgba(0, 229, 255, 0.3)',
+                        'neon-purple': '0 0 20px -5px rgba(168, 85, 247, 0.3)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.36)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .glass-panel {
+            @apply backdrop-blur-xl bg-glass-surface border border-glass-border shadow-glass rounded-2xl;
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .text-glow-purple {
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0C10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-slate-200 font-body antialiased selection:bg-bubble-cyan selection:text-black">
+<div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-bubble-cyan/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-ai-purple/10 rounded-full blur-[120px]"></div>
+<div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+</div>
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300">
+<div class="glass-panel mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="flex items-center justify-center size-8 rounded-lg bg-gradient-to-br from-bubble-cyan to-ai-purple text-white font-bold text-lg">
+                    A
+                </div>
+<span class="font-bold tracking-tight text-white group-hover:text-bubble-cyan transition-colors">Andre Muniz</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#bubble">Bubble.io</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#ai">AI Engineering</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#about">About</a>
+</nav>
+<button class="relative group overflow-hidden rounded-lg bg-white/10 px-5 py-2 text-sm font-bold text-white transition-all hover:bg-white/20 border border-white/5 hover:border-white/20">
+<span class="relative z-10">Let's Talk</span>
+<div class="absolute inset-0 bg-gradient-to-r from-bubble-cyan/20 to-ai-purple/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</header>
+<main class="relative z-10 pt-32 pb-20 px-4 md:px-10 lg:px-16 flex flex-col gap-24">
+<section class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[70vh]">
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-slate-300 backdrop-blur-md">
+<span class="relative flex h-2 w-2">
+<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+<span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+</span>
+                    Open for select contracts
+                </div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white">
+                    BUBBLE<span class="text-bubble-cyan">.</span> <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">ARCHITECT</span> <br/>
+<span class="text-ai-purple">&amp;</span> AI ENGINEER
+                </h1>
+<p class="max-w-xl text-lg text-slate-400 leading-relaxed font-light">
+                    I build high-performance no-code applications and integrate complex AI architectures. From rapid MVP to scalable enterprise solutions.
+                </p>
+<div class="flex flex-wrap gap-4 mt-4">
+<a class="group flex items-center gap-3 px-6 py-3 rounded-xl bg-bubble-cyan/10 border border-bubble-cyan/20 hover:bg-bubble-cyan/20 hover:border-bubble-cyan/50 transition-all" href="#bubble">
+<span class="material-symbols-outlined text-bubble-cyan">layers</span>
+<span class="font-bold text-bubble-cyan">Explore Bubble</span>
+</a>
+<a class="group flex items-center gap-3 px-6 py-3 rounded-xl bg-ai-purple/10 border border-ai-purple/20 hover:bg-ai-purple/20 hover:border-ai-purple/50 transition-all" href="#ai">
+<span class="material-symbols-outlined text-ai-purple">psychology</span>
+<span class="font-bold text-ai-purple">Explore AI</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+<div class="relative w-[320px] h-[400px] md:w-[380px] md:h-[480px]">
+<div class="absolute top-5 right-5 w-full h-full border border-ai-purple/30 rounded-2xl z-0"></div>
+<div class="absolute -bottom-5 -left-5 w-full h-full border border-bubble-cyan/30 rounded-2xl z-0"></div>
+<div class="glass-panel w-full h-full overflow-hidden relative z-10 flex flex-col">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-bg/90 z-20"></div>
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoQCYES6mhaMGT6BadE-OE-tX27Opkp2JnrgF4OgCssTad2G2Wh3_Frcin_SQOh0zR15ZhqP8jpk4U69foPEbEbqP6gr11qfd7y1vWmNrqmBY9J0EU8635NVHrWQ1EJbJZUMIjXXJC4pPiOXS4J_t5MSExHSQvNr8igBST9dVy_4MbyQ2fIwMH235rpDywo-gSQfsFip6XtEs1TUU-xPqIF8w0_pp2bIB_X-mtb-W9Yf4XY4cXTzOZKAGtX9YlmgoTtIYWGYzaJ87p');"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-30">
+<h3 class="text-2xl font-bold text-white">Andre Muniz</h3>
+<p class="text-slate-400 text-sm mt-1 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-bubble-cyan"></span> Full Stack No-Code
+                                <span class="w-1.5 h-1.5 rounded-full bg-ai-purple"></span> AI Systems
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full max-w-7xl mx-auto scroll-mt-24" id="bubble">
+<div class="flex items-end justify-between mb-12 border-b border-white/5 pb-6">
+<div>
+<span class="text-bubble-cyan font-bold tracking-widest text-sm uppercase mb-2 block">Domain 01</span>
+<h2 class="text-4xl md:text-5xl font-bold text-white">Bubble Ecosystem</h2>
+</div>
+<div class="hidden md:block text-right">
+<p class="text-slate-400 text-sm">Pixel-perfect • Responsive • Scalable</p>
+<p class="text-slate-500 text-xs mt-1">50+ Projects Delivered</p>
+</div>
+</div>
+<div class="mb-16">
+<h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-bubble-cyan">extension</span>
+            Featured Plugins
+        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-40 rounded-xl overflow-hidden bg-slate-800 flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+<span class="material-symbols-outlined text-6xl text-bubble-cyan/50 relative z-10 group-hover:text-bubble-cyan transition-colors duration-300">show_chart</span>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Plugin</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-white group-hover:text-bubble-cyan transition-colors">Advanced Charts JS</h3>
+<p class="mt-2 text-xs text-slate-400 line-clamp-2">High-performance data visualization wrapper for Chart.js tailored for bubble apps.</p>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-40 rounded-xl overflow-hidden bg-slate-800 flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+<span class="material-symbols-outlined text-6xl text-bubble-cyan/50 relative z-10 group-hover:text-bubble-cyan transition-colors duration-300">payments</span>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Plugin</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-white group-hover:text-bubble-cyan transition-colors">Stripe Connect Pro</h3>
+<p class="mt-2 text-xs text-slate-400 line-clamp-2">Complete Stripe Connect implementation kit for multi-vendor marketplaces.</p>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-40 rounded-xl overflow-hidden bg-slate-800 flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+<span class="material-symbols-outlined text-6xl text-bubble-cyan/50 relative z-10 group-hover:text-bubble-cyan transition-colors duration-300">map</span>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Plugin</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-white group-hover:text-bubble-cyan transition-colors">Mapbox Glider</h3>
+<p class="mt-2 text-xs text-slate-400 line-clamp-2">Advanced mapping capabilities with custom markers and route optimization.</p>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-40 rounded-xl overflow-hidden bg-slate-800 flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+<span class="material-symbols-outlined text-6xl text-bubble-cyan/50 relative z-10 group-hover:text-bubble-cyan transition-colors duration-300">qr_code_scanner</span>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Plugin</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-white group-hover:text-bubble-cyan transition-colors">QR Generator</h3>
+<p class="mt-2 text-xs text-slate-400 line-clamp-2">Generate and scan dynamic QR codes directly within your Bubble application.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-bubble-cyan">grid_view</span>
+            Marketplace Templates
+        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-48 rounded-xl overflow-hidden bg-slate-800">
+<div class="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform duration-700 bg-[url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&amp;w=2426&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60"></div>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">SaaS Platform</div>
+</div>
+<div class="p-5">
+<h3 class="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">Marketplace V2</h3>
+<p class="mt-2 text-sm text-slate-400 line-clamp-2">A complex two-sided marketplace with Stripe Connect integration and real-time messaging.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Stripe</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Algolia</span>
+</div>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-48 rounded-xl overflow-hidden bg-slate-800">
+<div class="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform duration-700 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60"></div>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Template</div>
+</div>
+<div class="p-5">
+<h3 class="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">CRM Starter Kit</h3>
+<p class="mt-2 text-sm text-slate-400 line-clamp-2">A comprehensive CRM template for agencies, featuring kanban boards and automated reporting.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Responsive</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Dashboard</span>
+</div>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-48 rounded-xl overflow-hidden bg-slate-800">
+<div class="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform duration-700 bg-[url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&amp;w=2574&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60"></div>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Social</div>
+</div>
+<div class="p-5">
+<h3 class="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">Social Network Kit</h3>
+<p class="mt-2 text-sm text-slate-400 line-clamp-2">Full-featured social media template with feeds, likes, comments, and user profiles.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Real-time</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Feed</span>
+</div>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-48 rounded-xl overflow-hidden bg-slate-800">
+<div class="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform duration-700 bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60"></div>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">E-commerce</div>
+</div>
+<div class="p-5">
+<h3 class="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">QuickStore PRO</h3>
+<p class="mt-2 text-sm text-slate-400 line-clamp-2">Lightweight e-commerce solution with inventory management and order tracking built-in.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Cart</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Payments</span>
+</div>
+</div>
+</div>
+<div class="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500">
+<div class="relative h-48 rounded-xl overflow-hidden bg-slate-800">
+<div class="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform duration-700 bg-[url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&amp;w=2676&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60"></div>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10">Analytic</div>
+</div>
+<div class="p-5">
+<h3 class="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">DataBoard Admin</h3>
+<p class="mt-2 text-sm text-slate-400 line-clamp-2">Admin dashboard template focused on data visualization and user management roles.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Charts</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">Roles</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full max-w-7xl mx-auto scroll-mt-24" id="ai">
+<div class="relative rounded-3xl border border-ai-purple/20 bg-gradient-to-b from-ai-dark/80 to-dark-bg overflow-hidden">
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-ai-purple/10 blur-[100px] pointer-events-none"></div>
+<div class="p-8 md:p-12 lg:p-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<span class="text-ai-purple font-bold tracking-widest text-sm uppercase mb-2 block">Domain 02</span>
+<h2 class="text-4xl md:text-5xl font-bold text-white">AI Engineering</h2>
+<p class="mt-4 text-slate-400 max-w-xl">
+                                Architecting the intelligence layer. Building autonomous agents, fine-tuning LLMs, and creating seamless AI ops workflows.
+                            </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full border border-ai-purple/30 flex items-center justify-center bg-ai-purple/10">
+<span class="material-symbols-outlined text-ai-purple text-xl">smart_toy</span>
+</div>
+<div class="h-10 w-10 rounded-full border border-ai-purple/30 flex items-center justify-center bg-ai-purple/10">
+<span class="material-symbols-outlined text-ai-purple text-xl">dataset</span>
+</div>
+<div class="h-10 w-10 rounded-full border border-ai-purple/30 flex items-center justify-center bg-ai-purple/10">
+<span class="material-symbols-outlined text-ai-purple text-xl">memory</span>
+</div>
+</div>
+</div>
+<div class="glass-panel p-8 md:p-10 border-ai-purple/20 bg-black/20 mb-16 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-ai-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<div>
+<div class="inline-block px-3 py-1 mb-4 rounded-full bg-ai-purple/20 text-ai-purple text-xs font-bold border border-ai-purple/30">FLAGSHIP PROJECT</div>
+<h3 class="text-3xl font-bold text-white mb-4">Nexus AI Ops Center</h3>
+<p class="text-slate-400 mb-6 leading-relaxed">
+                                    A centralized operations hub for managing multiple LLM agents. Features include prompt versioning, real-time token cost analysis, and a visual workflow builder for LangChain sequences.
+                                </p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-ai-purple text-lg">check_circle</span>
+                                        Custom Fine-Tuned Models
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-ai-purple text-lg">check_circle</span>
+                                        Autonomous Agent Orchestration
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-ai-purple text-lg">check_circle</span>
+                                        Vector Database Integration
+                                    </li>
+</ul>
+<button class="flex items-center gap-2 text-white font-semibold hover:text-ai-purple transition-colors">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="relative">
+<div class="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 aspect-video relative group-hover:shadow-neon-purple transition-all duration-500">
+<div class="absolute inset-0 flex flex-col p-4">
+<div class="flex gap-2 mb-4 border-b border-white/5 pb-2">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-4">
+<div class="col-span-1 bg-white/5 rounded-lg animate-pulse"></div>
+<div class="col-span-2 flex flex-col gap-3">
+<div class="h-20 bg-ai-purple/20 rounded-lg border border-ai-purple/30 flex items-center justify-center text-xs text-ai-purple/70 font-mono">Input Processing...</div>
+<div class="h-full bg-white/5 rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full overflow-hidden">
+<p class="text-center text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">Powered By</p>
+<div class="relative flex w-full overflow-hidden mask-linear-gradient">
+<div class="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-ai-dark/90 to-transparent"></div>
+<div class="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-ai-dark/90 to-transparent"></div>
+<div class="flex animate-marquee whitespace-nowrap gap-16 py-4">
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">code</span> Bubble</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">webhook</span> n8n</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">link</span> LangChain</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">layers</span> Next.js</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">terminal</span> Python</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">database</span> Pinecone</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">api</span> OpenAI</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">code</span> Bubble</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">webhook</span> n8n</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">link</span> LangChain</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">layers</span> Next.js</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">terminal</span> Python</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">database</span> Pinecone</div>
+<div class="flex items-center gap-3 text-slate-300 font-bold text-xl"><span class="material-symbols-outlined">api</span> OpenAI</div>
+</div>
+</div>
+</div>
+</div>
+</div></section>
+<section class="max-w-4xl mx-auto w-full py-20 text-center">
+<h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to build the <span class="bg-gradient-to-r from-bubble-cyan to-ai-purple bg-clip-text text-transparent">future?</span></h2>
+<p class="text-slate-400 mb-8 max-w-lg mx-auto">Whether you need a Bubble MVP launched in weeks or a custom AI agent system, I can help you ship faster.</p>
+<button class="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform shadow-lg shadow-white/10">
+                Book a Consultation
+            </button>
+</section>
+</main>
+<footer class="border-t border-white/5 bg-black/40 backdrop-blur-md py-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-col gap-1">
+<span class="text-white font-bold text-lg">Andre Muniz</span>
+<span class="text-slate-500 text-sm">© 2024. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Twitter</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Github</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

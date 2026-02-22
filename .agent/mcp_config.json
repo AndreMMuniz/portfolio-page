@@ -15,10 +15,23 @@
                 "shadcn@latest",
                 "mcp"
             ]
-        }
+        },
         //other mcp servers
+        "stitch": {
+            "serverUrl": "https://stitch.googleapis.com/mcp",
+            "headers": {
+                "X-Goog-Api-Key": "AQ.Ab8RN6LaoMXuuL8pbwV-0VReCoT1tlebvwKL1Kzyk8LgwjNRXQ"
+            }
+        },
+        "stitch-assets": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-shell",
+                "--allow",
+                "curl"
+            ]
+        }
     }
 }
-
 // setup mcp server in  ~/.gemini\antigravity\mcp_config.json
-

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Andre Muniz | Bubble.io Plugins &amp; Templates</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df2f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#111818",
+                        "surface-dark": "#1b2727",
+                        "surface-metallic": "#283939",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'metallic-gradient': 'linear-gradient(145deg, #283939 0%, #1b2727 100%)',
+                        'metallic-sheen': 'linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .glass-panel {
+            background: rgba(27, 39, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .metallic-card {
+            background: linear-gradient(145deg, #1f2d2d, #162020);
+            box-shadow: 
+                5px 5px 10px #0e1414, 
+                -5px -5px 10px #243434;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .metallic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                8px 8px 16px #0e1414, 
+                -8px -8px 16px #243434,
+                0 0 15px rgba(13, 242, 242, 0.1); 
+            border-color: rgba(13, 242, 242, 0.3);
+        }
+
+        .neon-glow-text {
+            text-shadow: 0 0 10px rgba(13, 242, 242, 0.3);
+        }
+
+        /* Brushed steel texture overlay effect */
+        .brushed-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full border-b border-[#283939] bg-[#111818]/95 backdrop-blur-md">
+<div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-white text-lg font-bold tracking-tight">Andre Muniz <span class="text-slate-500 font-normal">| Bubble.io Dev</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">Home</a>
+<a class="text-white text-sm font-medium border-b-2 border-primary pb-0.5" href="#">Assets</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">Services</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">Contact</a>
+</nav>
+<button class="hidden md:flex bg-primary hover:bg-[#0bcbcb] text-background-dark text-sm font-bold px-5 py-2 rounded transition-all shadow-[0_0_15px_rgba(13,242,242,0.3)] hover:shadow-[0_0_20px_rgba(13,242,242,0.5)]">
+                Hire Me
+            </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center w-full">
+<!-- Hero Section -->
+<section class="w-full max-w-[1280px] px-6 py-12 md:py-20 flex flex-col items-center text-center relative overflow-hidden">
+<!-- Background Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-metallic border border-slate-700 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-medium text-slate-300 tracking-wide uppercase">Available for freelance</span>
+</div>
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 max-w-4xl relative z-10">
+                Architecting the <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">Future of No-Code</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
+                Premium Plugins and Scalable Templates for the Bubble.io Ecosystem. Enhancing your development workflow with high-performance assets.
+            </p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="flex items-center gap-2 bg-surface-metallic border border-slate-600 hover:border-primary text-white px-6 py-3 rounded font-medium transition-all group" href="#plugins">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">extension</span>
+                    Explore Plugins
+                </a>
+<a class="flex items-center gap-2 bg-transparent border border-slate-700 hover:border-white text-slate-300 hover:text-white px-6 py-3 rounded font-medium transition-all group" href="#templates">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors">web</span>
+                    View Templates
+                </a>
+</div>
+</section>
+<!-- Plugins Section -->
+<section class="w-full bg-[#0d1212] py-20 border-t border-slate-800" id="plugins">
+<div class="max-w-[1280px] mx-auto px-6">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-4xl">extension</span>
+                            Custom Plugins
+                        </h2>
+<p class="text-slate-400">High-performance integrations for your Bubble apps.</p>
+</div>
+<a class="hidden md:flex items-center gap-1 text-primary text-sm font-medium hover:underline" href="#">
+                        View All Plugins
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Plugin Card 1 -->
+<div class="metallic-card p-6 rounded-lg relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#1b2727] border border-slate-700 text-xs text-slate-300 px-2 py-1 rounded">v2.0</span>
+</div>
+<div class="w-12 h-12 rounded bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center mb-4 border border-slate-600 shadow-inner">
+<span class="material-symbols-outlined text-white text-2xl">database</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Pinecone Vector DB</h3>
+<p class="text-sm text-slate-400 mb-6 min-h-[40px]">Seamless integration for AI vector search. High-performance API wrapper.</p>
+<div class="flex items-center justify-between border-t border-slate-700/50 pt-4 mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">API</span>
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">AI</span>
+</div>
+<button class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                                Marketplace
+                                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Plugin Card 2 -->
+<div class="metallic-card p-6 rounded-lg relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#1b2727] border border-slate-700 text-xs text-slate-300 px-2 py-1 rounded">v1.4</span>
+</div>
+<div class="w-12 h-12 rounded bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center mb-4 border border-slate-600 shadow-inner">
+<span class="material-symbols-outlined text-white text-2xl">payments</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Stripe Connect Pro</h3>
+<p class="text-sm text-slate-400 mb-6 min-h-[40px]">Complete marketplace payment solution. Handle split payments &amp; transfers.</p>
+<div class="flex items-center justify-between border-t border-slate-700/50 pt-4 mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">Finance</span>
+</div>
+<button class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                                Marketplace
+                                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Plugin Card 3 -->
+<div class="metallic-card p-6 rounded-lg relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#1b2727] border border-slate-700 text-xs text-slate-300 px-2 py-1 rounded">v3.1</span>
+</div>
+<div class="w-12 h-12 rounded bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center mb-4 border border-slate-600 shadow-inner">
+<span class="material-symbols-outlined text-white text-2xl">drag_indicator</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Drag &amp; Drop Kanban</h3>
+<p class="text-sm text-slate-400 mb-6 min-h-[40px]">Smooth, Trello-like drag and drop functionality for any repeating group.</p>
+<div class="flex items-center justify-between border-t border-slate-700/50 pt-4 mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">UI/UX</span>
+</div>
+<button class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                                Marketplace
+                                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Plugin Card 4 -->
+<div class="metallic-card p-6 rounded-lg relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#1b2727] border border-slate-700 text-xs text-slate-300 px-2 py-1 rounded">v1.0</span>
+</div>
+<div class="w-12 h-12 rounded bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center mb-4 border border-slate-600 shadow-inner">
+<span class="material-symbols-outlined text-white text-2xl">picture_as_pdf</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">PDF Generator Ultra</h3>
+<p class="text-sm text-slate-400 mb-6 min-h-[40px]">Server-side PDF generation from HTML with custom headers and footers.</p>
+<div class="flex items-center justify-between border-t border-slate-700/50 pt-4 mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">Utilities</span>
+</div>
+<button class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                                Marketplace
+                                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Plugin Card 5 -->
+<div class="metallic-card p-6 rounded-lg relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#1b2727] border border-slate-700 text-xs text-slate-300 px-2 py-1 rounded">v2.5</span>
+</div>
+<div class="w-12 h-12 rounded bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center mb-4 border border-slate-600 shadow-inner">
+<span class="material-symbols-outlined text-white text-2xl">calendar_month</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Advanced Scheduler</h3>
+<p class="text-sm text-slate-400 mb-6 min-h-[40px]">Google Calendar style scheduling element with drag resize support.</p>
+<div class="flex items-center justify-between border-t border-slate-700/50 pt-4 mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">UI/UX</span>
+</div>
+<button class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                                Marketplace
+                                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Plugin Card 6 -->
+<div class="metallic-card p-6 rounded-lg relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#1b2727] border border-slate-700 text-xs text-slate-300 px-2 py-1 rounded">v1.2</span>
+</div>
+<div class="w-12 h-12 rounded bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center mb-4 border border-slate-600 shadow-inner">
+<span class="material-symbols-outlined text-white text-2xl">chat</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Real-time Chat Socket</h3>
+<p class="text-sm text-slate-400 mb-6 min-h-[40px]">Low-latency websocket connection for building live chat applications.</p>
+<div class="flex items-center justify-between border-t border-slate-700/50 pt-4 mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">Social</span>
+</div>
+<button class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                                Marketplace
+                                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Templates Section -->
+<section class="w-full bg-background-dark py-20 relative" id="templates">
+<div class="absolute inset-0 brushed-texture opacity-50 pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-4xl">dashboard_customize</span>
+                            Premium Templates
+                        </h2>
+<p class="text-slate-400">Production-ready blueprints to jumpstart your next project.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-metallic text-white text-sm rounded border border-primary/30">All</button>
+<button class="px-4 py-2 bg-transparent text-slate-400 hover:text-white text-sm rounded border border-transparent hover:border-slate-700">SaaS</button>
+<button class="px-4 py-2 bg-transparent text-slate-400 hover:text-white text-sm rounded border border-transparent hover:border-slate-700">Marketplace</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Template Card 1 -->
+<div class="group rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 bg-[#162020] hover:shadow-[0_0_20px_rgba(13,242,242,0.1)]">
+<!-- Image Container -->
+<div class="relative h-64 md:h-80 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#162020] to-transparent opacity-60 z-10"></div>
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="Dark mode analytics dashboard with vibrant data visualization charts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBidLGjNyNFfyZ8bEj0ftedFe_2F4wPEqZrVEqi6V2bhB_zVD7c61kxA8hEtCgzHXL8CXODJi-eszp5xMVfTd_uEUYe_punkcXfXtharITobKACIH5S4QaTPCSwS-z856PZlZxoCLWHwWoQwDntMEfZ81Z0Nux6EtOx4gpWdBYbPi4JLycF0nKynJ5_IZeSYe1IotZN_9z1GAhxdpZt9xPUYBwEr5UP3MYkudsLy1Z3JU0I3EBZ5rlc07ngyLpX-XvA5PhZwYmiRH99"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+<div class="flex gap-2 mb-2">
+<span class="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">SaaS</span>
+<span class="bg-black/40 text-white border border-white/10 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">AI Ready</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">SaaS Starter Kit V3</h3>
+<p class="text-slate-300 text-sm line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                                    Complete multi-tenant SaaS boilerplates with Stripe subscription flows, user management, and admin dashboard pre-built.
+                                </p>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 border-t border-slate-800 bg-[#162020] flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 uppercase tracking-wider">Price</span>
+<span class="text-white font-bold text-lg">$149</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">Details</button>
+<button class="px-4 py-2 bg-surface-metallic hover:bg-primary hover:text-background-dark text-white text-sm font-bold rounded border border-slate-600 hover:border-primary transition-all flex items-center gap-2">
+                                    Live Demo
+                                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Template Card 2 -->
+<div class="group rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 bg-[#162020] hover:shadow-[0_0_20px_rgba(13,242,242,0.1)]">
+<!-- Image Container -->
+<div class="relative h-64 md:h-80 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#162020] to-transparent opacity-60 z-10"></div>
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="Modern clean project management kanban board interface on laptop screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnRfJVQ_6R_CnWO3D8FU2WNu7JTwTqauI7m4Wblx2T24LEmHuc4WmHpC_o7JVatr-nT8sI0B2929ok2kQKaKe7MBG4AalKDIZLnZg0fjqV7T42Yauazq6-qMZyKQ-2IzMFpUx8x3Is3hDzbvJPPKMjdIszNRA2p_3wPhriDh-w1JFRMZ_qsj_rm8mpAqmsQCGMr1r2O4rtCtdpvrFWqKpk7ezdjSPa0prg6IlhkMqBSpdS_-Y4Fa_aMPYZo5oBsP8ry49oBtPec6DX"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+<div class="flex gap-2 mb-2">
+<span class="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">Marketplace</span>
+<span class="bg-black/40 text-white border border-white/10 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">Responsive</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">Service Marketplace Pro</h3>
+<p class="text-slate-300 text-sm line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                                    Two-sided marketplace template inspired by Upwork. Includes messaging, escrow payments, and review systems.
+                                </p>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 border-t border-slate-800 bg-[#162020] flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 uppercase tracking-wider">Price</span>
+<span class="text-white font-bold text-lg">$199</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">Details</button>
+<button class="px-4 py-2 bg-surface-metallic hover:bg-primary hover:text-background-dark text-white text-sm font-bold rounded border border-slate-600 hover:border-primary transition-all flex items-center gap-2">
+                                    Live Demo
+                                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Template Card 3 -->
+<div class="group rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 bg-[#162020] hover:shadow-[0_0_20px_rgba(13,242,242,0.1)]">
+<!-- Image Container -->
+<div class="relative h-64 md:h-80 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#162020] to-transparent opacity-60 z-10"></div>
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic CRM interface with dark background and neon data points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIfRK8Hx_1LfIAWf4bSvD2jElX27VA970YWu5wo-YKRkdXPjumWoDbjuQmsGHcjY9P0WwXzL9MJAphxU7QS29N5l23omgGJzHM-cY0llviKoQp7SQcVDGoYsxHpm3bJzKIzx4g2ArPSVAGy0u828bPd4kOrzBlaMPaGIF2yBb5I2SQ8SOebn4K-2ZM12EBAYhClCB8VIPdQSHChTR3ciHDmb_AmOS5fukFg852IB-V9xS52QVlxxAIGkPjiBi9WqWZ1YP3p-ZCCk9c"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+<div class="flex gap-2 mb-2">
+<span class="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">CRM</span>
+<span class="bg-black/40 text-white border border-white/10 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">Dashboard</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">Nexus CRM Dashboard</h3>
+<p class="text-slate-300 text-sm line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                                    Advanced customer relationship management dashboard with interactive charts, kanban pipelines, and team collaboration tools.
+                                </p>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 border-t border-slate-800 bg-[#162020] flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 uppercase tracking-wider">Price</span>
+<span class="text-white font-bold text-lg">$89</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">Details</button>
+<button class="px-4 py-2 bg-surface-metallic hover:bg-primary hover:text-background-dark text-white text-sm font-bold rounded border border-slate-600 hover:border-primary transition-all flex items-center gap-2">
+                                    Live Demo
+                                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Template Card 4 -->
+<div class="group rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 bg-[#162020] hover:shadow-[0_0_20px_rgba(13,242,242,0.1)]">
+<!-- Image Container -->
+<div class="relative h-64 md:h-80 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#162020] to-transparent opacity-60 z-10"></div>
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist social media feed interface on mobile device mockup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpuT0Rga8FQJUm-i5OO_gOuheJz_xryn-TxbbpWual_Q-knp1gEF6aZSiOoaZzJpmeGNy7c_AIVMNmXaM1gTxg_o0rUXI8ZJbx1OEValSq1GQkjH2S5nG-M3E9C5P_Yq8ceIBcOCU1I9UGphCXU5nfleObrsutwNRaGbjqFoNHdOlGiCGpHQJLZyVxAnXmSEmgh4Vx4flz-nICfCCJUA2C-3ENx-EiL7qEMhphUt1L6MXDQNf-ot9o4nHlmMCyuqXYa8fZ6oySArga"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+<div class="flex gap-2 mb-2">
+<span class="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">Social</span>
+<span class="bg-black/40 text-white border border-white/10 text-[10px] font-bold uppercase px-2 py-1 rounded backdrop-blur-sm">Mobile First</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">Social Community App</h3>
+<p class="text-slate-300 text-sm line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                                    Mobile-first community platform with feed, groups, user profiles, and direct messaging.
+                                </p>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 border-t border-slate-800 bg-[#162020] flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 uppercase tracking-wider">Price</span>
+<span class="text-white font-bold text-lg">$129</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">Details</button>
+<button class="px-4 py-2 bg-surface-metallic hover:bg-primary hover:text-background-dark text-white text-sm font-bold rounded border border-slate-600 hover:border-primary transition-all flex items-center gap-2">
+                                    Live Demo
+                                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="px-8 py-3 bg-transparent border border-slate-600 text-slate-300 hover:text-white hover:border-primary rounded font-bold transition-all uppercase tracking-wide text-sm">
+                        Load More Templates
+                    </button>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="w-full py-20 px-6">
+<div class="max-w-4xl mx-auto metallic-card rounded-2xl p-10 md:p-16 text-center relative overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+<h2 class="text-3xl md:text-5xl font-bold text-white mb-6 relative z-10">Need a Custom Solution?</h2>
+<p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto relative z-10">
+                    I specialize in building complex Bubble applications and custom plugins tailored to your specific business needs.
+                </p>
+<button class="relative z-10 bg-primary hover:bg-[#0bcbcb] text-background-dark text-lg font-bold px-8 py-4 rounded transition-all shadow-[0_0_20px_rgba(13,242,242,0.4)] hover:shadow-[0_0_30px_rgba(13,242,242,0.6)] hover:scale-105">
+                    Start a Project
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-[#0a0f0f] border-t border-slate-800 py-12">
+<div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="size-6 text-slate-500">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-slate-500 font-medium">© 2023 Andre Muniz. All rights reserved.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<!-- Simple SVG for Twitter/X -->
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">
+                    Bubble.io Profile
+                </a>
+</div>
+</div>
+</footer>
+</body></html>

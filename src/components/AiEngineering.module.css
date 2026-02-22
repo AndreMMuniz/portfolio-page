@@ -1,0 +1,263 @@
+#ai-engineering {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.iconWrapper {
+    width: 64px;
+    height: 64px;
+    background: var(--bg-surface);
+    border: 1px solid rgba(144, 19, 254, 0.4);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 20px rgba(144, 19, 254, 0.2);
+}
+
+.headerIcon {
+    color: var(--secondary);
+    width: 32px;
+    height: 32px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #d8b4fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.aiCard {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle glow internal to the card */
+.aiCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    opacity: 0.7;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.cardType {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #c084fc;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.iconLink {
+    color: var(--text-muted);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.iconLink:hover {
+    color: var(--text-main);
+    transform: translateY(-2px);
+}
+
+.cardTitle {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.cardDesc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Nexus Featured Area */
+.opsCenterHighlight {
+    margin-top: 5rem;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(144, 19, 254, 0.2);
+    border-radius: 24px;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background circle */
+.opsCenterHighlight::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(144, 19, 254, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.opsContent {
+    flex: 1;
+    z-index: 1;
+}
+
+.opsBadge {
+    display: inline-block;
+    background: rgba(144, 19, 254, 0.2);
+    color: #d8b4fe;
+    padding: 0.3rem 1rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(144, 19, 254, 0.3);
+}
+
+.opsTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.opsDesc {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.opsVisual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.nodeNetwork {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.networkIcon {
+    color: rgba(144, 19, 254, 0.6);
+    animation: rotateSlowly 20s linear infinite;
+}
+
+.pulseNode {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--primary);
+    animation: pulseNodeAnim 2s infinite alternate;
+}
+
+.n1 {
+    top: 20%;
+    left: 20%;
+}
+
+.n2 {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 0.5s;
+    background: var(--secondary);
+    box-shadow: 0 0 15px var(--secondary);
+}
+
+.n3 {
+    top: 40%;
+    right: 10%;
+    animation-delay: 1s;
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+@keyframes rotateSlowly {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseNodeAnim {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .opsCenterHighlight {
+        flex-direction: column;
+        padding: 2.5rem;
+        text-align: center;
+        gap: 2.5rem;
+    }
+}

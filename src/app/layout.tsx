@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "André Muniz - Portfolio",
-  description: "Bubble Developer & Specialist in no-code development",
+  title: "Andre Muniz | Bubble Architect & AI Engineer",
+  description: "I build high-performance no-code applications and integrate complex AI architectures. From rapid MVP to scalable enterprise solutions.",
 };
 
 export default function RootLayout({
@@ -16,9 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
+    <html lang="en" className="dark">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${outfit.className} bg-dark-bg text-slate-200 antialiased selection:bg-bubble-cyan selection:text-black`}>
         {children}
       </body>
     </html>

@@ -1,0 +1,67 @@
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 3rem 0;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    display: flex;
+}
+
+/* Gradient covers for smooth fade-in/out on edges */
+.marqueeContainer::before,
+.marqueeContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marqueeContainer::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.marqueeContainer::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.marqueeContent {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    padding: 0 1.5rem;
+}
+
+.marqueeContent:hover {
+    animation-play-state: paused;
+}
+
+.techItem {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.techItem:hover {
+    color: var(--primary);
+    transform: scale(1.05);
+    cursor: default;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 1.5rem));
+    }
+}
