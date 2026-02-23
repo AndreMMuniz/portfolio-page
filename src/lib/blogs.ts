@@ -58,8 +58,8 @@ export async function getPostData(slug: string): Promise<BlogPost> {
 
     return {
         slug,
+        ...(matterResult.data as { title: string; title_pt?: string; date: string; excerpt: string; excerpt_pt?: string; coverImage?: string }),
         content,
         content_pt,
-        ...(matterResult.data as { title: string; title_pt?: string; date: string; excerpt: string; excerpt_pt?: string; coverImage?: string }),
     };
 }
