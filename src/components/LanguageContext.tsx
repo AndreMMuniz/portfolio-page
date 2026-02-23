@@ -87,7 +87,7 @@ const dictionary: Record<string, Record<string, string>> = {
         "prompt.yes": "Sim, traduzir",
         "prompt.no": "Não, manter",
 
-        "hero.badge": "Disponível para seletos projetos",
+        "hero.badge": "Disponível para projetos",
         "hero.desc": "Eu construo aplicativos no-code de alta performance e integro arquiteturas complexas de IA. Do MVP rápido a soluções corporativas escaláveis.",
         "hero.btn.bubble": "Explorar Bubble",
         "hero.btn.ai": "Explorar IA",
