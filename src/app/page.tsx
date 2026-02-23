@@ -289,10 +289,8 @@ export default function Home() {
                       Access Live Platform <span className="material-symbols-outlined">open_in_new</span>
                     </a>
                   </div>
-                  <div className="relative rounded-2xl p-2 border border-white/10 bg-white/5 shadow-2xl group-hover:border-ai-purple/30 group-hover:bg-ai-purple/5 transition-all duration-500">
-                    <div className="rounded-xl overflow-hidden bg-slate-900 aspect-video relative border border-black/50">
-                      <Image src="/nexus-ai-ops.png" alt="Nexus AI Ops Center" fill className="object-cover" />
-                    </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 aspect-video group-hover:border-ai-purple/50 group-hover:shadow-neon-purple transition-all duration-500">
+                    <Image src="/nexus-ai-ops.png" alt="Nexus AI Ops Center" fill className="object-cover" />
                   </div>
                 </div>
               </div>
