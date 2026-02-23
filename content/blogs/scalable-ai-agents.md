@@ -2,7 +2,7 @@
 title: "Building Scalable AI Agents with LangGraph"
 date: "2024-02-23"
 excerpt: "Learn how to architect complex autonomous systems using state-of-the-art graph-based AI orchestration."
-coverImage: "/nexus-ai-ops.png"
+coverImage: "/blog/capa-post-scalable-ai-agents.png"
 ---
 
 ## Introduction
