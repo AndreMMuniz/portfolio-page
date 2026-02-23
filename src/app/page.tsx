@@ -280,9 +280,20 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
-                    <button className="flex items-center gap-2 text-white font-semibold hover:text-ai-purple transition-colors">
-                      View Case Study <span className="material-symbols-outlined">arrow_forward</span>
-                    </button>
+                    <div className="pt-2">
+                      <a
+                        href="https://ops.munizandre.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-gradient-to-r from-ai-purple to-indigo-600 text-white font-bold shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-white/10"
+                      >
+                        <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                        <span className="relative z-10 flex items-center gap-2">
+                          Access Live Platform
+                          <span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">open_in_new</span>
+                        </span>
+                      </a>
+                    </div>
                   </div>
                   <div className="relative">
                     <div className="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 aspect-video relative group-hover:shadow-neon-purple transition-all duration-500">
