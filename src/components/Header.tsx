@@ -1,36 +1,30 @@
-import Link from 'next/link';
-import styles from './Header.module.css';
+"use client";
 
-export default function Header() {
-    return (
-        <header className={styles.header}>
-            <div className={`container ${styles.headerContent}`}>
-                <Link href="/" className={styles.logo}>
-                    André Muniz
-                </Link>
-                <nav className={styles.nav}>
-                    <ul className={styles.navList}>
-                        <li>
-                            <Link href="#about" className={styles.navLink}>
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="#projects" className={styles.navLink}>
-                                Projects
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="#contact" className={styles.navLink}>
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-                    <Link href="#contact" className="btn-primary">
-                        Contact me
-                    </Link>
-                </nav>
-            </div>
-        </header>
-    );
+import Link from "next/link";
+
+interface HeaderProps {
+  openContact: () => void;
+}
+
+export default function Header({ openContact }: HeaderProps) {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+      <div className="glass-panel mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+          <div className="flex items-center justify-center size-8 rounded-lg bg-gradient-to-br from-bubble-cyan to-ai-purple text-white font-bold text-lg">A</div>
+          <span className="font-bold tracking-tight text-white group-hover:text-bubble-cyan transition-colors">Andre Muniz</span>
+        </Link>
+        <nav className="hidden md:flex gap-8 items-center">
+          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#bubble">Bubble.io</Link>
+          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#ai">AI Engineering</Link>
+          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/blogs">Blogs</Link>
+          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#about">About</Link>
+        </nav>
+        <button onClick={openContact} className="relative group/btn overflow-hidden rounded-lg bg-white/10 px-5 py-2 text-sm font-bold text-white transition-all hover:bg-white/20 border border-white/5 hover:border-white/20">
+          <span className="relative z-10">Let&apos;s Talk</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-bubble-cyan/20 to-ai-purple/20 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+        </button>
+      </div>
+    </header>
+  );
 }

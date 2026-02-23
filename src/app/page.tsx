@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Header from "@/components/Header";
 
 /* ──────────────────────────────────────────────────────── DATA ── */
 const PLUGINS = [
@@ -90,24 +91,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
       </div>
 
-      {/* ── Header ── */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
-        <div className="glass-panel mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="flex items-center justify-center size-8 rounded-lg bg-gradient-to-br from-bubble-cyan to-ai-purple text-white font-bold text-lg">A</div>
-            <span className="font-bold tracking-tight text-white group-hover:text-bubble-cyan transition-colors">Andre Muniz</span>
-          </div>
-          <nav className="hidden md:flex gap-8 items-center">
-            <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#bubble">Bubble.io</Link>
-            <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#ai">AI Engineering</Link>
-            <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#about">About</Link>
-          </nav>
-          <button onClick={openContact} className="relative group/btn overflow-hidden rounded-lg bg-white/10 px-5 py-2 text-sm font-bold text-white transition-all hover:bg-white/20 border border-white/5 hover:border-white/20">
-            <span className="relative z-10">Let&apos;s Talk</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-bubble-cyan/20 to-ai-purple/20 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-          </button>
-        </div>
-      </header>
+      <Header openContact={openContact} />
+
 
       <main className="relative z-10 pt-32 pb-20 px-4 md:px-10 lg:px-16 flex flex-col gap-24">
 
