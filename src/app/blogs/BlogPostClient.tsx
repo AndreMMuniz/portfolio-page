@@ -5,13 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import SocialShare from "@/components/SocialShare";
+import { useLanguage } from "@/components/LanguageContext";
 
 interface BlogPost {
     slug: string;
     title: string;
+    title_pt?: string;
     date: string;
     excerpt: string;
+    excerpt_pt?: string;
     content: string;
+    content_pt?: string;
     coverImage?: string;
 }
 
@@ -54,6 +58,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
 export default function BlogPostClient({ post }: { post: BlogPost }) {
     const [contactOpen, setContactOpen] = useState(false);
     const [currentUrl, setCurrentUrl] = useState("");
+    const { t, language } = useLanguage();
 
     useEffect(() => {
         setCurrentUrl(window.location.href);
@@ -74,7 +79,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             <main className="relative z-10 pt-32 pb-20 px-4 md:px-10 lg:px-16 max-w-4xl mx-auto w-full">
                 <Link href="/blogs" className="flex items-center gap-2 text-slate-400 hover:text-bubble-cyan transition-colors mb-8 group w-fit">
                     <span className="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
-                    Back to Blogs
+                    {t("btn.back_blogs")}
                 </Link>
 
                 <article className="glass-panel p-6 md:p-12 overflow-hidden">
@@ -85,19 +90,19 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                     )}
 
                     <div className="mb-10 border-b border-white/10 pb-10">
-                        <span className="text-bubble-cyan font-bold tracking-widest text-xs uppercase mb-4 block">{new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                        <span className="text-bubble-cyan font-bold tracking-widest text-xs uppercase mb-4 block">{new Date(post.date).toLocaleDateString(language === "pt" ? "pt-BR" : "en-US", { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                         <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tighter">
-                            {post.title}
+                            {language === "pt" && post.title_pt ? post.title_pt : post.title}
                         </h1>
                         <p className="text-xl text-slate-400 font-light italic leading-relaxed">
-                            {post.excerpt}
+                            {language === "pt" && post.excerpt_pt ? post.excerpt_pt : post.excerpt}
                         </p>
                     </div>
 
                     {/* Markdown Content */}
                     <div
                         className="blog-content text-slate-300 leading-relaxed text-lg"
-                        dangerouslySetInnerHTML={{ __html: post.content }}
+                        dangerouslySetInnerHTML={{ __html: (language === "pt" && post.content_pt) ? post.content_pt : post.content }}
                     />
 
                     <div className="mt-16 pt-10 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8">
@@ -116,10 +121,10 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
                 {/* ── Related CTA ── */}
                 <div className="mt-20 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-bubble-cyan/10 to-ai-purple/10 border border-white/10 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-4">Want to build something similar?</h2>
-                    <p className="text-slate-400 mb-8 max-w-lg mx-auto">I help founders and companies build complex AI systems and high-performance Bubble apps.</p>
+                    <h2 className="text-3xl font-bold text-white mb-4">{t("cta.title")}</h2>
+                    <p className="text-slate-400 mb-8 max-w-lg mx-auto">{t("cta.desc")}</p>
                     <button onClick={() => setContactOpen(true)} className="px-8 py-3 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform">
-                        Let&apos;s Talk
+                        {t("cta.btn")}
                     </button>
                 </div>
             </main>

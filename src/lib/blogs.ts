@@ -9,9 +9,12 @@ const postsDirectory = path.join(process.cwd(), "content/blogs");
 export interface BlogPost {
     slug: string;
     title: string;
+    title_pt?: string;
     date: string;
     excerpt: string;
+    excerpt_pt?: string;
     content: string;
+    content_pt?: string;
     coverImage?: string;
 }
 
@@ -30,7 +33,7 @@ export async function getSortedPostsData() {
 
         return {
             slug,
-            ...(matterResult.data as { title: string; date: string; excerpt: string; coverImage?: string }),
+            ...(matterResult.data as { title: string; title_pt?: string; date: string; excerpt: string; excerpt_pt?: string; coverImage?: string }),
         };
     });
 
@@ -47,9 +50,16 @@ export async function getPostData(slug: string): Promise<BlogPost> {
         .process(matterResult.content);
     const content = processedContent.toString();
 
+    let content_pt;
+    if (matterResult.data.content_pt) {
+        const processedPt = await remark().use(html).process(matterResult.data.content_pt);
+        content_pt = processedPt.toString();
+    }
+
     return {
         slug,
         content,
-        ...(matterResult.data as { title: string; date: string; excerpt: string; coverImage?: string }),
+        content_pt,
+        ...(matterResult.data as { title: string; title_pt?: string; date: string; excerpt: string; excerpt_pt?: string; coverImage?: string }),
     };
 }

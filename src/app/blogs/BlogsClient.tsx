@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import { useLanguage } from "@/components/LanguageContext";
 
 /* ──────────────────────────────────────────────────── CONTACT MODAL ── */
 function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -43,6 +44,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
 
 export default function BlogsClient({ posts }: { posts: any[] }) {
     const [contactOpen, setContactOpen] = useState(false);
+    const { t, language } = useLanguage();
 
     return (
         <div className="relative min-h-screen w-full flex flex-col overflow-x-hidden bg-dark-bg">
@@ -63,7 +65,7 @@ export default function BlogsClient({ posts }: { posts: any[] }) {
                         THE BLOG<span className="text-bubble-cyan">.</span>
                     </h1>
                     <p className="mt-6 text-xl text-slate-400 max-w-2xl font-light">
-                        Deep dives into No-Code architecture, AI engineering, and building the next generation of digital products.
+                        {language === "pt" ? "Mergulhos profundos em arquitetura No-Code, engenharia de IA e construção da próxima geração de produtos digitais." : "Deep dives into No-Code architecture, AI engineering, and building the next generation of digital products."}
                     </p>
                 </div>
 
@@ -78,14 +80,18 @@ export default function BlogsClient({ posts }: { posts: any[] }) {
                                         <span className="material-symbols-outlined text-4xl text-slate-700">article</span>
                                     </div>
                                 )}
-                                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-bubble-cyan border border-bubble-cyan/20">NEW POST</div>
+                                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-bubble-cyan border border-bubble-cyan/20">{t("blog.new_post")}</div>
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
                                 <span className="text-xs text-slate-500 mb-2 font-mono uppercase">{new Date(post.date).toLocaleDateString()}</span>
-                                <h3 className="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors mb-4 line-clamp-2">{post.title}</h3>
-                                <p className="text-sm text-slate-400 line-clamp-3 mb-6 flex-grow">{post.excerpt}</p>
+                                <h3 className="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors mb-4 line-clamp-2">
+                                    {language === "pt" && post.title_pt ? post.title_pt : post.title}
+                                </h3>
+                                <p className="text-sm text-slate-400 line-clamp-3 mb-6 flex-grow">
+                                    {language === "pt" && post.excerpt_pt ? post.excerpt_pt : post.excerpt}
+                                </p>
                                 <div className="flex items-center gap-2 text-bubble-cyan font-bold text-sm">
-                                    Read Full Post <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                    {t("blog.read_full")} <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                 </div>
                             </div>
                         </Link>
@@ -99,11 +105,6 @@ export default function BlogsClient({ posts }: { posts: any[] }) {
                     <div className="flex flex-col gap-1">
                         <span className="text-white font-bold text-lg">Andre Muniz</span>
                         <span className="text-slate-500 text-sm">© {new Date().getFullYear()}. All rights reserved.</span>
-                    </div>
-                    <div className="flex gap-6">
-                        <Link className="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</Link>
-                        <Link className="text-slate-400 hover:text-white transition-colors" href="#">Twitter</Link>
-                        <Link className="text-slate-400 hover:text-white transition-colors" href="#">Github</Link>
                     </div>
                 </div>
             </footer>

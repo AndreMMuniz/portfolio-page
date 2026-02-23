@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/components/LanguageContext";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -20,7 +22,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className={`${outfit.className} bg-dark-bg text-slate-200 antialiased selection:bg-bubble-cyan selection:text-black`}>
-        {children}
+        <LanguageProvider>
+          <AnalyticsTracker />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
