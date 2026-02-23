@@ -34,6 +34,37 @@ const dictionary: Record<string, Record<string, string>> = {
         "prompt.desc": "Notamos que você está acessando do Brasil. Deseja traduzir a página para Português?",
         "prompt.yes": "Sim, traduzir",
         "prompt.no": "Não, manter em Inglês",
+
+        "hero.badge": "Open for select contracts",
+        "hero.desc": "I build high-performance no-code applications and integrate complex AI architectures. From rapid MVP to scalable enterprise solutions.",
+        "hero.btn.bubble": "Explore Bubble",
+        "hero.btn.ai": "Explore AI",
+        "hero.role1": "Full Stack No-Code",
+        "hero.role2": "AI Systems",
+
+        "domain1.label": "Domain 01",
+        "domain1.title": "Bubble Ecosystem",
+        "domain1.subtitle1": "Pixel-perfect • Responsive • Scalable",
+        "domain1.subtitle2": "50+ Projects Delivered",
+        "domain1.plugins": "Featured Plugins",
+        "domain1.templates": "Marketplace Templates",
+        "domain1.plugin_badge": "Plugin",
+
+        "domain2.label": "Domain 02",
+        "domain2.title": "AI Engineering",
+        "domain2.desc": "Architecting the intelligence layer. Building autonomous agents, fine-tuning LLMs, and creating seamless AI ops workflows.",
+        "domain2.flagship": "FLAGSHIP PROJECT",
+        "domain2.link": "Access Live Platform",
+        "domain2.tech": "Technologies I Work With",
+        "domain2.bullet1": "Custom Fine-Tuned Models",
+        "domain2.bullet2": "Autonomous Agent Orchestration",
+        "domain2.bullet3": "Vector Database Integration",
+
+        "footer.cta.title1": "Ready to build the ",
+        "footer.cta.title2": "future?",
+        "footer.cta.desc": "Whether you need a Bubble MVP launched in weeks or a custom AI agent system, I can help you ship faster.",
+        "footer.cta.btn": "Book a Consultation",
+        "footer.rights": "All rights reserved."
     },
     pt: {
         "nav.home": "Início",
@@ -55,6 +86,37 @@ const dictionary: Record<string, Record<string, string>> = {
         "prompt.desc": "Notamos que você está acessando do Brasil. Deseja traduzir a página para Português?",
         "prompt.yes": "Sim, traduzir",
         "prompt.no": "Não, manter",
+
+        "hero.badge": "Disponível para seletos projetos",
+        "hero.desc": "Eu construo aplicativos no-code de alta performance e integro arquiteturas complexas de IA. Do MVP rápido a soluções corporativas escaláveis.",
+        "hero.btn.bubble": "Explorar Bubble",
+        "hero.btn.ai": "Explorar IA",
+        "hero.role1": "No-Code Full Stack",
+        "hero.role2": "Sistemas de IA",
+
+        "domain1.label": "Domínio 01",
+        "domain1.title": "Ecossistema Bubble",
+        "domain1.subtitle1": "Pixel-perfect • Responsivo • Escalável",
+        "domain1.subtitle2": "50+ Projetos Entregues",
+        "domain1.plugins": "Plugins em Destaque",
+        "domain1.templates": "Templates do Marketplace",
+        "domain1.plugin_badge": "Plugin",
+
+        "domain2.label": "Domínio 02",
+        "domain2.title": "Engenharia de IA",
+        "domain2.desc": "Arquitetando a camada de inteligência. Construção de agentes autônomos, fine-tuning de LLMs e criação de fluxos de operações de IA fluidos.",
+        "domain2.flagship": "PROJETO PRINCIPAL",
+        "domain2.link": "Acessar Plataforma Ao Vivo",
+        "domain2.tech": "Tecnologias com as quais trabalho",
+        "domain2.bullet1": "Modelos Customizados em Fine-Tuning",
+        "domain2.bullet2": "Orquestração de Agentes Autônomos",
+        "domain2.bullet3": "Integração com Banco de Dados Vetorial",
+
+        "footer.cta.title1": "Pronto para construir o ",
+        "footer.cta.title2": "futuro?",
+        "footer.cta.desc": "Seja um MVP em Bubble lançado em semanas ou um sistema customizado de agentes de IA, posso te ajudar a entregar mais rápido.",
+        "footer.cta.btn": "Agende uma Consulta",
+        "footer.rights": "Todos os direitos reservados."
     }
 };
 
