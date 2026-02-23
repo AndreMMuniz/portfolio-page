@@ -3,15 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Header from "@/components/Header";
+import { useLanguage } from "@/components/LanguageContext";
 
 /* ──────────────────────────────────────────────────────── DATA ── */
 const PLUGINS = [
-  { icon: "mood", title: "Custom Emoji Picker", desc: "A fully customizable and high-performance emoji picker for your Bubble.io apps.", imageSrc: "/custom-emoji-picker.jpg", href: "https://bubble.io/plugin/custom-emoji-picker-1771527860436x158441753496518660" },
-  { icon: "slideshow", title: "Page to PPT", desc: "Generate elegant PowerPoint presentations directly from Bubble groups and elements.", imageSrc: "/page-to-ppt.png", href: "https://bubble.io/plugin/group-to-pptx-1770740351933x224071802699907070" },
+  { icon: "mood", title: "Custom Emoji Picker", title_pt: "Seletor de Emoji Customizado", desc: "A fully customizable and high-performance emoji picker for your Bubble.io apps.", desc_pt: "Um seletor de emojis totalmente personalizável e de alta performance para seus aplicativos Bubble.io.", imageSrc: "/custom-emoji-picker.jpg", href: "https://bubble.io/plugin/custom-emoji-picker-1771527860436x158441753496518660" },
+  { icon: "slideshow", title: "Page to PPT", title_pt: "Página para PPT", desc: "Generate elegant PowerPoint presentations directly from Bubble groups and elements.", desc_pt: "Gere apresentações PowerPoint elegantes diretamente de grupos e elementos Bubble.", imageSrc: "/page-to-ppt.png", href: "https://bubble.io/plugin/group-to-pptx-1770740351933x224071802699907070" },
 ];
 
 const TEMPLATES = [
-  { title: "Multi-Channel CRM Chat Hub", tag: "CRM", desc: "Omni-channel customer support: WhatsApp, Intercom, and email all in one interface built on Bubble.", imageSrc: "/crm-chat-hub.png", tags: ["Chat", "Support", "WhatsApp"], href: "https://multichannel-chat-63131.bubbleapps.io/version-test" },
+  { title: "Multi-Channel CRM Chat Hub", title_pt: "Hub de Chat Multi-Canal CRM", tag: "CRM", desc: "Omni-channel customer support: WhatsApp, Intercom, and email all in one interface built on Bubble.", desc_pt: "Suporte omni-channel ao cliente: WhatsApp, Intercom e e-mail em uma única interface construída no Bubble.", imageSrc: "/crm-chat-hub.png", tags: ["Chat", "Support", "WhatsApp"], tags_pt: ["Chat", "Suporte", "WhatsApp"], href: "https://multichannel-chat-63131.bubbleapps.io/version-test" },
 ];
 
 const NEXUS_TECH = [
@@ -78,6 +80,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
 export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
   const openContact = () => setContactOpen(true);
+  const { t, language } = useLanguage();
 
   return (
     <div className="relative min-h-screen w-full flex flex-col overflow-x-hidden">
@@ -90,24 +93,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
       </div>
 
-      {/* ── Header ── */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
-        <div className="glass-panel mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="flex items-center justify-center size-8 rounded-lg bg-gradient-to-br from-bubble-cyan to-ai-purple text-white font-bold text-lg">A</div>
-            <span className="font-bold tracking-tight text-white group-hover:text-bubble-cyan transition-colors">Andre Muniz</span>
-          </div>
-          <nav className="hidden md:flex gap-8 items-center">
-            <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#bubble">Bubble.io</Link>
-            <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#ai">AI Engineering</Link>
-            <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#about">About</Link>
-          </nav>
-          <button onClick={openContact} className="relative group/btn overflow-hidden rounded-lg bg-white/10 px-5 py-2 text-sm font-bold text-white transition-all hover:bg-white/20 border border-white/5 hover:border-white/20">
-            <span className="relative z-10">Let&apos;s Talk</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-bubble-cyan/20 to-ai-purple/20 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-          </button>
-        </div>
-      </header>
+      <Header openContact={openContact} />
+
 
       <main className="relative z-10 pt-32 pb-20 px-4 md:px-10 lg:px-16 flex flex-col gap-24">
 
@@ -119,24 +106,32 @@ export default function Home() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
-              Open for select contracts
+              {t("hero.badge")}
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white">
-              BUBBLE<span className="text-bubble-cyan">.</span> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">ARCHITECT</span> <br />
-              <span className="text-ai-purple">&amp;</span> AI ENGINEER
-            </h1>
+            {language === 'pt' ? (
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white">
+                ARQUITETO<span className="text-bubble-cyan">.</span> <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">BUBBLE</span> <br />
+                <span className="text-ai-purple">&amp;</span> ENGENH. DE IA
+              </h1>
+            ) : (
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white">
+                BUBBLE<span className="text-bubble-cyan">.</span> <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">ARCHITECT</span> <br />
+                <span className="text-ai-purple">&amp;</span> AI ENGINEER
+              </h1>
+            )}
             <p className="max-w-xl text-lg text-slate-400 leading-relaxed font-light">
-              I build high-performance no-code applications and integrate complex AI architectures. From rapid MVP to scalable enterprise solutions.
+              {t("hero.desc")}
             </p>
             <div className="flex flex-wrap gap-4 mt-4">
               <Link className="group flex items-center gap-3 px-6 py-3 rounded-xl bg-bubble-cyan/10 border border-bubble-cyan/20 hover:bg-bubble-cyan/20 hover:border-bubble-cyan/50 transition-all" href="#bubble">
                 <span className="material-symbols-outlined text-bubble-cyan">layers</span>
-                <span className="font-bold text-bubble-cyan">Explore Bubble</span>
+                <span className="font-bold text-bubble-cyan">{t("hero.btn.bubble")}</span>
               </Link>
               <Link className="group flex items-center gap-3 px-6 py-3 rounded-xl bg-ai-purple/10 border border-ai-purple/20 hover:bg-ai-purple/20 hover:border-ai-purple/50 transition-all" href="#ai">
                 <span className="material-symbols-outlined text-ai-purple">psychology</span>
-                <span className="font-bold text-ai-purple">Explore AI</span>
+                <span className="font-bold text-ai-purple">{t("hero.btn.ai")}</span>
               </Link>
             </div>
           </div>
@@ -152,8 +147,8 @@ export default function Home() {
                 <div className="absolute bottom-0 left-0 right-0 p-6 z-30">
                   <h3 className="text-2xl font-bold text-white">Andre Muniz</h3>
                   <p className="text-slate-400 text-sm mt-1 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-bubble-cyan" /> Full Stack No-Code
-                    <span className="w-1.5 h-1.5 rounded-full bg-ai-purple" /> AI Systems
+                    <span className="w-1.5 h-1.5 rounded-full bg-bubble-cyan" /> {t("hero.role1")}
+                    <span className="w-1.5 h-1.5 rounded-full bg-ai-purple" /> {t("hero.role2")}
                   </p>
                 </div>
               </div>
@@ -165,12 +160,12 @@ export default function Home() {
         <section className="w-full max-w-7xl mx-auto scroll-mt-24" id="bubble">
           <div className="flex items-end justify-between mb-12 border-b border-white/5 pb-6">
             <div>
-              <span className="text-bubble-cyan font-bold tracking-widest text-sm uppercase mb-2 block">Domain 01</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white">Bubble Ecosystem</h2>
+              <span className="text-bubble-cyan font-bold tracking-widest text-sm uppercase mb-2 block">{t("domain1.label")}</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white">{t("domain1.title")}</h2>
             </div>
             <div className="hidden md:block text-right">
-              <p className="text-slate-400 text-sm">Pixel-perfect • Responsive • Scalable</p>
-              <p className="text-slate-500 text-xs mt-1">50+ Projects Delivered</p>
+              <p className="text-slate-400 text-sm">{t("domain1.subtitle1")}</p>
+              <p className="text-slate-500 text-xs mt-1">{t("domain1.subtitle2")}</p>
             </div>
           </div>
 
@@ -178,7 +173,7 @@ export default function Home() {
           <div className="mb-16">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
               <span className="material-symbols-outlined text-bubble-cyan">extension</span>
-              Featured Plugins
+              {t("domain1.plugins")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
               {PLUGINS.map((plugin) => (
@@ -186,15 +181,15 @@ export default function Home() {
                   <div className="relative h-40 rounded-xl overflow-hidden bg-slate-800 flex items-center justify-center">
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 group-hover:scale-105 transition-transform duration-700" />
                     {plugin.imageSrc ? (
-                      <Image src={plugin.imageSrc} alt={plugin.title} fill className="object-contain p-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                      <Image src={plugin.imageSrc} alt={language === "pt" && plugin.title_pt ? plugin.title_pt : plugin.title} fill className="object-contain p-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
                     ) : (
                       <span className="material-symbols-outlined text-6xl text-bubble-cyan/50 relative z-10 group-hover:text-bubble-cyan transition-colors duration-300">{plugin.icon}</span>
                     )}
-                    <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10 z-20">Plugin</div>
+                    <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10 z-20">{t("domain1.plugin_badge")}</div>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-lg font-bold text-white group-hover:text-bubble-cyan transition-colors">{plugin.title}</h3>
-                    <p className="mt-2 text-xs text-slate-400 line-clamp-2">{plugin.desc}</p>
+                    <h3 className="text-lg font-bold text-white group-hover:text-bubble-cyan transition-colors">{language === "pt" && plugin.title_pt ? plugin.title_pt : plugin.title}</h3>
+                    <p className="mt-2 text-xs text-slate-400 line-clamp-2">{language === "pt" && plugin.desc_pt ? plugin.desc_pt : plugin.desc}</p>
                   </div>
                 </a>
               ))}
@@ -205,23 +200,23 @@ export default function Home() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
               <span className="material-symbols-outlined text-bubble-cyan">grid_view</span>
-              Marketplace Templates
+              {t("domain1.templates")}
             </h3>
             <div className="grid grid-cols-1 max-w-lg gap-6">
               {TEMPLATES.map((tmpl) => (
                 <a key={tmpl.title} href={tmpl.href} target="_blank" rel="noopener noreferrer" className="glass-panel group p-1 hover:border-bubble-cyan/40 transition-colors duration-500 cursor-pointer">
                   <div className="relative h-56 rounded-xl overflow-hidden bg-slate-800">
                     <div className="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform duration-700">
-                      <Image src={tmpl.imageSrc} alt={tmpl.title} fill className="object-cover opacity-70 group-hover:opacity-90 transition-opacity" />
+                      <Image src={tmpl.imageSrc} alt={language === "pt" && tmpl.title_pt ? tmpl.title_pt : tmpl.title} fill className="object-cover opacity-70 group-hover:opacity-90 transition-opacity" />
                     </div>
                     <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-white border border-white/10 z-10">{tmpl.tag}</div>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">{tmpl.title}</h3>
-                    <p className="mt-2 text-sm text-slate-400 line-clamp-2">{tmpl.desc}</p>
+                    <h3 className="text-xl font-bold text-white group-hover:text-bubble-cyan transition-colors">{language === "pt" && tmpl.title_pt ? tmpl.title_pt : tmpl.title}</h3>
+                    <p className="mt-2 text-sm text-slate-400 line-clamp-2">{language === "pt" && tmpl.desc_pt ? tmpl.desc_pt : tmpl.desc}</p>
                     <div className="mt-4 flex gap-2">
-                      {tmpl.tags.map((t) => (
-                        <span key={t} className="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">{t}</span>
+                      {(language === "pt" && tmpl.tags_pt ? tmpl.tags_pt : tmpl.tags).map((tItem) => (
+                        <span key={tItem} className="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-300 border border-white/5">{tItem}</span>
                       ))}
                     </div>
                   </div>
@@ -238,10 +233,10 @@ export default function Home() {
             <div className="p-8 md:p-12 lg:p-16">
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                 <div>
-                  <span className="text-ai-purple font-bold tracking-widest text-sm uppercase mb-2 block">Domain 02</span>
-                  <h2 className="text-4xl md:text-5xl font-bold text-white">AI Engineering</h2>
+                  <span className="text-ai-purple font-bold tracking-widest text-sm uppercase mb-2 block">{t("domain2.label")}</span>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white">{t("domain2.title")}</h2>
                   <p className="mt-4 text-slate-400 max-w-xl">
-                    Architecting the intelligence layer. Building autonomous agents, fine-tuning LLMs, and creating seamless AI ops workflows.
+                    {t("domain2.desc")}
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -258,13 +253,13 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-ai-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                   <div>
-                    <div className="inline-block px-3 py-1 mb-4 rounded-full bg-ai-purple/20 text-ai-purple text-xs font-bold border border-ai-purple/30">FLAGSHIP PROJECT</div>
+                    <div className="inline-block px-3 py-1 mb-4 rounded-full bg-ai-purple/20 text-ai-purple text-xs font-bold border border-ai-purple/30">{t("domain2.flagship")}</div>
                     <h3 className="text-3xl font-bold text-white mb-4">Nexus AI Ops Center</h3>
                     <p className="text-slate-400 mb-6 leading-relaxed">
-                      A centralized operations hub for managing multiple LLM agents. Features include prompt versioning, real-time token cost analysis, and a visual workflow builder for LangGraph sequences.
+                      {language === "pt" ? "Um hub de operações centralizado para gerenciar múltiplos agentes LLM. Recursos incluem controle de versão de prompts, análise de custo de tokens em tempo real e um construtor de fluxo visual para sequências LangGraph." : "A centralized operations hub for managing multiple LLM agents. Features include prompt versioning, real-time token cost analysis, and a visual workflow builder for LangGraph sequences."}
                     </p>
                     <ul className="space-y-3 mb-6">
-                      {["Custom Fine-Tuned Models", "Autonomous Agent Orchestration", "Vector Database Integration"].map((item) => (
+                      {[t("domain2.bullet1"), t("domain2.bullet2"), t("domain2.bullet3")].map((item) => (
                         <li key={item} className="flex items-center gap-3 text-sm text-slate-300">
                           <span className="material-symbols-outlined text-ai-purple text-lg">check_circle</span>
                           {item}
@@ -286,7 +281,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-white font-semibold hover:text-ai-purple transition-colors w-fit"
                     >
-                      Access Live Platform <span className="material-symbols-outlined">open_in_new</span>
+                      {t("domain2.link")} <span className="material-symbols-outlined">open_in_new</span>
                     </a>
                   </div>
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 aspect-video group-hover:border-ai-purple/50 group-hover:shadow-neon-purple transition-all duration-500">
@@ -297,7 +292,7 @@ export default function Home() {
 
               {/* Tech Marquee */}
               <div className="w-full overflow-hidden">
-                <p className="text-center text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">Technologies I Work With</p>
+                <p className="text-center text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">{t("domain2.tech")}</p>
                 <div className="relative flex w-full overflow-hidden">
                   <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-ai-dark/90 to-transparent" />
                   <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-ai-dark/90 to-transparent" />
@@ -317,11 +312,11 @@ export default function Home() {
         {/* ── CTA ── */}
         <section className="max-w-4xl mx-auto w-full py-20 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to build the <span className="bg-gradient-to-r from-bubble-cyan to-ai-purple bg-clip-text text-transparent">future?</span>
+            {t("footer.cta.title1")} <span className="bg-gradient-to-r from-bubble-cyan to-ai-purple bg-clip-text text-transparent">{t("footer.cta.title2")}</span>
           </h2>
-          <p className="text-slate-400 mb-8 max-w-lg mx-auto">Whether you need a Bubble MVP launched in weeks or a custom AI agent system, I can help you ship faster.</p>
+          <p className="text-slate-400 mb-8 max-w-lg mx-auto">{t("footer.cta.desc")}</p>
           <button onClick={openContact} className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform shadow-lg shadow-white/10">
-            Book a Consultation
+            {t("footer.cta.btn")}
           </button>
         </section>
       </main>
@@ -331,7 +326,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col gap-1">
             <span className="text-white font-bold text-lg">Andre Muniz</span>
-            <span className="text-slate-500 text-sm">© {new Date().getFullYear()}. All rights reserved.</span>
+            <span className="text-slate-500 text-sm">© {new Date().getFullYear()}. {t("footer.rights")}</span>
           </div>
           <div className="flex gap-6">
             <Link className="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</Link>
