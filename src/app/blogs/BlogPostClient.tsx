@@ -58,7 +58,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
 export default function BlogPostClient({ post }: { post: BlogPost }) {
     const [contactOpen, setContactOpen] = useState(false);
     const [currentUrl, setCurrentUrl] = useState("");
-    const { t, language } = useLanguage();
+    const { t, language, setLanguage } = useLanguage();
 
     useEffect(() => {
         setCurrentUrl(window.location.href);
@@ -136,7 +136,14 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                         <span className="text-white font-bold text-lg">Andre Muniz</span>
                         <span className="text-slate-500 text-sm">© {new Date().getFullYear()}. All rights reserved.</span>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 items-center">
+                        <button
+                            onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}
+                            className="text-slate-600 hover:text-white transition-colors text-xs uppercase"
+                            title="Toggle Language"
+                        >
+                            {language === 'en' ? 'PT' : 'EN'}
+                        </button>
                         <Link className="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</Link>
                         <Link className="text-slate-400 hover:text-white transition-colors" href="#">Twitter</Link>
                         <Link className="text-slate-400 hover:text-white transition-colors" href="#">Github</Link>

@@ -44,7 +44,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
 
 export default function BlogsClient({ posts }: { posts: any[] }) {
     const [contactOpen, setContactOpen] = useState(false);
-    const { t, language } = useLanguage();
+    const { t, language, setLanguage } = useLanguage();
 
     return (
         <div className="relative min-h-screen w-full flex flex-col overflow-x-hidden bg-dark-bg">
@@ -105,6 +105,15 @@ export default function BlogsClient({ posts }: { posts: any[] }) {
                     <div className="flex flex-col gap-1">
                         <span className="text-white font-bold text-lg">Andre Muniz</span>
                         <span className="text-slate-500 text-sm">© {new Date().getFullYear()}. All rights reserved.</span>
+                    </div>
+                    <div className="flex gap-6 items-center">
+                        <button
+                            onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}
+                            className="text-slate-600 hover:text-white transition-colors text-xs uppercase"
+                            title="Toggle Language"
+                        >
+                            {language === 'en' ? 'PT' : 'EN'}
+                        </button>
                     </div>
                 </div>
             </footer>
