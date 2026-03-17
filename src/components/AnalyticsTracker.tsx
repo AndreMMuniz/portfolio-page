@@ -3,8 +3,28 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
+export const trackEvent = async (eventName: string, eventData?: Record<string, unknown>) => {
+    try {
+        const payload = {
+            type: "custom_event",
+            event_name: eventName,
+            event_data: eventData,
+            url: window.location.href,
+            pathname: window.location.pathname,
+            timestamp: new Date().toISOString()
+        };
+        await fetch("/api/analytics", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+    } catch (error) {
+        console.error("Failed to track event", error);
+    }
+};
+
 export default function AnalyticsTracker() {
-    const { language, setLanguage } = useLanguage();
+    const { setLanguage } = useLanguage();
     const [showPrompt, setShowPrompt] = useState(false);
     const [sessionStartTime] = useState(Date.now());
 
@@ -49,7 +69,7 @@ export default function AnalyticsTracker() {
                     userAgent: navigator.userAgent
                 };
 
-                // Send generic hit (we could also track duration by sending a beacon on unload)
+                // Send generic hit
                 await fetch("/api/analytics", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -62,6 +82,21 @@ export default function AnalyticsTracker() {
         };
 
         trackVisit();
+
+        // Scroll Depth Tracking
+        let maxScroll = 0;
+        const handleScroll = () => {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > 50 && maxScroll < 50) {
+                maxScroll = 50;
+                trackEvent("scroll_depth", { depth: 50 });
+            }
+            if (scrollPercent > 90 && maxScroll < 90) {
+                maxScroll = 90;
+                trackEvent("scroll_depth", { depth: 90 });
+            }
+        };
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         // Track duration on leave
         const handleBeforeUnload = () => {
@@ -87,11 +122,13 @@ export default function AnalyticsTracker() {
     }, []);
 
     const acceptTranslation = () => {
+        trackEvent("translation_choice", { choice: "pt", auto_prompt: true });
         setLanguage("pt");
         setShowPrompt(false);
     };
 
     const declineTranslation = () => {
+        trackEvent("translation_choice", { choice: "en", auto_prompt: true });
         setLanguage("en");
         setShowPrompt(false);
     };
