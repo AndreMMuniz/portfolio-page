@@ -8,7 +8,7 @@ import { useLanguage } from "@/components/LanguageContext";
 
 /* ──────────────────────────────────────────────────────── DATA ── */
 const PLUGINS = [
-  { icon: "mood", title: "Custom Emoji Picker", title_pt: "Seletor de Emoji Customizado", desc: "A fully customizable and high-performance emoji picker for your Bubble.io apps.", desc_pt: "Um seletor de emojis totalmente personalizável e de alta performance para seus aplicativos Bubble.io.", imageSrc: "/custom-emoji-picker.jpg", href: "https://bubble.io/plugin/custom-emoji-picker-1771527860436x158441753496518660" },
+  { icon: "mood", title: "Custom Emoji Picker", title_pt: "Seletor de Emoji Customizado", desc: "A fully customizable and high-performance emoji picker for your Bubble.io apps.", desc_pt: "Um seletor de emojis totalmente personalizável e de alta performance para seus aplicativos Bubble.io.", imageSrc: "/custom-emoji-picker.png", href: "https://bubble.io/plugin/custom-emoji-picker-1771527860436x158441753496518660" },
   { icon: "slideshow", title: "Page to PPT", title_pt: "Página para PPT", desc: "Generate elegant PowerPoint presentations directly from Bubble groups and elements.", desc_pt: "Gere apresentações PowerPoint elegantes diretamente de grupos e elementos Bubble.", imageSrc: "/page-to-ppt.png", href: "https://bubble.io/plugin/group-to-pptx-1770740351933x224071802699907070" },
 ];
 
