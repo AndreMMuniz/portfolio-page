@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "./LanguageContext";
+import { trackEvent } from "./AnalyticsTracker";
 
 interface HeaderProps {
   openContact: () => void;
@@ -18,10 +19,10 @@ export default function Header({ openContact }: HeaderProps) {
           <span className="font-bold tracking-tight text-white group-hover:text-bubble-cyan transition-colors">Andre Muniz</span>
         </Link>
         <nav className="hidden md:flex gap-8 items-center">
-          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#bubble">{t("nav.bubble")}</Link>
-          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#ai">{t("nav.ai")}</Link>
-          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/blogs">{t("nav.blogs")}</Link>
-          <Link className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#about">{t("nav.about")}</Link>
+          <Link onClick={() => trackEvent("header_nav", { destination: "bubble" })} className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#bubble">{t("nav.bubble")}</Link>
+          <Link onClick={() => trackEvent("header_nav", { destination: "ai" })} className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#ai">{t("nav.ai")}</Link>
+          <Link onClick={() => trackEvent("header_nav", { destination: "blogs" })} className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/blogs">{t("nav.blogs")}</Link>
+          <Link onClick={() => trackEvent("header_nav", { destination: "about" })} className="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="/#about">{t("nav.about")}</Link>
         </nav>
         <button onClick={openContact} className="relative group/btn overflow-hidden rounded-lg bg-white/10 px-5 py-2 text-sm font-bold text-white transition-all hover:bg-white/20 border border-white/5 hover:border-white/20">
           <span className="relative z-10">{t("btn.talk")}</span>

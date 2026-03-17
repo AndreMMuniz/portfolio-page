@@ -1,0 +1,80 @@
+﻿
+> portifolio-page@0.1.0 lint
+> eslint
+
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\app\blogs\BlogPostClient.tsx
+  65:34  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\app\blogs\BlogPostClient.tsx:65:34
+  63 |     const [currentUrl, setCurrentUrl] = useState("");
+  64 |     const { t, language, setLanguage } = useLanguage();
+> 65 |     const [mountTime] = useState(Date.now());
+     |                                  ^^^^^^^^^^ Cannot call impure function
+  66 |
+  67 |     useEffect(() => {
+  68 |         setCurrentUrl(window.location.href);  react-hooks/purity
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\app\blogs\BlogsClient.tsx
+  47:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\app\blogs\[slug]\page.tsx
+  27:14  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  39:16  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\app\blogs\[slug]\page.tsx:39:16
+  37 |     try {
+  38 |         const post = await getPostData(slug);
+> 39 |         return <BlogPostClient post={post} />;
+     |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  40 |     } catch (e) {
+  41 |         notFound();
+  42 |     }  react-hooks/error-boundaries
+  40:14  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\app\layout.tsx
+  43:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\AiEngineering.tsx
+  1:24  warning  'Cpu' is defined but never used     @typescript-eslint/no-unused-vars
+  1:62  warning  'Github' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\BubbleDeveloper.tsx
+  30:86  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\ContactCTA.tsx
+   8:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  10:91  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\Hero.tsx
+  27:30  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  39:32  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\LanguageContext.tsx
+  130:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\LanguageContext.tsx:130:13
+  128 |         const saved = localStorage.getItem("lang") as Language;
+  129 |         if (saved && (saved === "en" || saved === "pt")) {
+> 130 |             setLanguageState(saved);
+      |             ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  131 |         }
+  132 |     }, []);
+  133 |  react-hooks/set-state-in-effect
+  139:29  warning  'section' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+
+C:\Users\mandr\OneDrive\Documentos\Projeto\portifolio-page\src\components\SocialShare.tsx
+  3:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 16 problems (9 errors, 7 warnings)
+

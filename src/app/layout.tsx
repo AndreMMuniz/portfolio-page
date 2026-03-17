@@ -9,6 +9,27 @@ const outfit = Outfit({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Andre Muniz | Bubble Architect & AI Engineer",
   description: "I build high-performance no-code applications and integrate complex AI architectures. From rapid MVP to scalable enterprise solutions.",
+  keywords: ["Bubble.io", "AI Engineer", "No-code Developer", "LangGraph", "Next.js", "Python", "Automation"],
+  authors: [{ name: "Andre Muniz" }],
+  creator: "Andre Muniz",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://munizandre.com",
+    title: "Andre Muniz | Bubble Architect & AI Engineer",
+    description: "High-performance no-code applications and complex AI architectures.",
+    siteName: "Andre Muniz Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Andre Muniz | Bubble Architect & AI Engineer",
+    description: "High-performance no-code applications and complex AI architectures.",
+    creator: "@andremuniz",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

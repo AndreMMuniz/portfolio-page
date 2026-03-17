@@ -39,9 +39,17 @@ export async function POST(request: Request) {
     region TEXT,
     country TEXT,
     duration_seconds INTEGER,
-    client_timestamp TEXT
+    client_timestamp TEXT,
+    event_name TEXT,
+    event_data JSONB
 );
 `;
+
+        // Since we might be adding columns to an existing table, we try to alter it
+        try {
+            await sql`ALTER TABLE analytics ADD COLUMN IF NOT EXISTS event_name TEXT;`;
+            await sql`ALTER TABLE analytics ADD COLUMN IF NOT EXISTS event_data JSONB;`;
+        } catch { /* ignore if somehow fails or unsupported */ }
 
         // Insert the tracking data
         await sql`
@@ -56,7 +64,9 @@ export async function POST(request: Request) {
     region,
     country,
     duration_seconds,
-    client_timestamp
+    client_timestamp,
+    event_name,
+    event_data
 ) VALUES(
     ${ip},
     ${userAgent},
@@ -68,7 +78,9 @@ export async function POST(request: Request) {
     ${data.region || 'unknown'},
     ${data.country || 'unknown'},
     ${data.durationSeconds || null},
-    ${data.timestamp || null}
+    ${data.timestamp || null},
+    ${data.event_name || null},
+    ${data.event_data ? JSON.stringify(data.event_data) : null}
 );
 `;
 
