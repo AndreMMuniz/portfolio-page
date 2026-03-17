@@ -6,6 +6,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import SocialShare from "@/components/SocialShare";
 import { useLanguage } from "@/components/LanguageContext";
+import { trackEvent } from "@/components/AnalyticsTracker";
 
 interface BlogPost {
     slug: string;
@@ -63,8 +64,14 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
     const { t, language, setLanguage } = useLanguage();
 
     useEffect(() => {
+        const mountTime = Date.now();
         setCurrentUrl(window.location.href);
-    }, []);
+
+        return () => {
+            const timeSpentSeconds = Math.round((Date.now() - mountTime) / 1000);
+            trackEvent("blog_read_time", { post: post.slug, time_seconds: timeSpentSeconds });
+        };
+    }, [post.slug]);
 
     return (
         <div className="relative min-h-screen w-full flex flex-col overflow-x-hidden bg-dark-bg">
@@ -79,7 +86,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             </div>
 
             <main className="relative z-10 pt-32 pb-20 px-4 md:px-10 lg:px-16 max-w-4xl mx-auto w-full">
-                <Link href="/blogs" className="flex items-center gap-2 text-slate-400 hover:text-bubble-cyan transition-colors mb-8 group w-fit">
+                <Link href="/blogs" onClick={() => trackEvent("blog_navigation", { destination: "blog_home" })} className="flex items-center gap-2 text-slate-400 hover:text-bubble-cyan transition-colors mb-8 group w-fit">
                     <span className="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
                     {t("btn.back_blogs")}
                 </Link>
