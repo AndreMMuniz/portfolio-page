@@ -255,13 +255,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* LangGraph Orchestration – Flagship */}
+              {/* Agents Orchestration – Flagship */}
               <div className="glass-panel p-8 md:p-10 border-ai-purple/20 bg-black/20 mb-16 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-r from-ai-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                   <div>
                     <div className="inline-block px-3 py-1 mb-4 rounded-full bg-ai-purple/20 text-ai-purple text-xs font-bold border border-ai-purple/30">{t("domain2.flagship")}</div>
-                    <h3 className="text-3xl font-bold text-white mb-4">LangGraph Orchestration</h3>
+                    <h3 className="text-3xl font-bold text-white mb-4">Agents Orchestration</h3>
                     <p className="text-slate-400 mb-6 leading-relaxed">
                       {t("domain2.desc")}
                     </p>
