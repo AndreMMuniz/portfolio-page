@@ -44,7 +44,17 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
     );
 }
 
-export default function BlogsClient({ posts }: { posts: any[] }) {
+interface PostData {
+    slug: string;
+    title: string;
+    title_pt?: string;
+    date: string;
+    excerpt: string;
+    excerpt_pt?: string;
+    coverImage?: string;
+}
+
+export default function BlogsClient({ posts }: { posts: PostData[] }) {
     const [contactOpen, setContactOpen] = useState(false);
     const { t, language, setLanguage } = useLanguage();
 

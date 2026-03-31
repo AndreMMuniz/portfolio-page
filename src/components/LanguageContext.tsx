@@ -122,13 +122,19 @@ const dictionary: Record<string, Record<string, string>> = {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
     const [language, setLanguageState] = useState<Language>("en");
+    const [mounted, setMounted] = useState(false);
 
-    // Load saved preference ideally
+    // Defer setting state to avoid synchronous cascade warnings while setting on mount
     useEffect(() => {
-        const saved = localStorage.getItem("lang") as Language;
-        if (saved && (saved === "en" || saved === "pt")) {
-            setLanguageState(saved);
-        }
+        const timeoutId = setTimeout(() => {
+            setMounted(true);
+            const saved = localStorage.getItem("lang") as Language;
+            if (saved && (saved === "en" || saved === "pt")) {
+                setLanguageState(saved);
+            }
+        }, 0);
+
+        return () => clearTimeout(timeoutId);
     }, []);
 
     const setLanguage = (lang: Language) => {
@@ -136,7 +142,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         localStorage.setItem("lang", lang);
     };
 
-    const t = (key: string, section?: string) => {
+    const t = (key: string) => {
         const dict = dictionary[language];
         if (dict && dict[key]) {
             return dict[key];

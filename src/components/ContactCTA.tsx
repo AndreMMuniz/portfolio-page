@@ -5,9 +5,9 @@ export default function ContactCTA() {
     return (
         <section id="contact" className={styles.contactSection}>
             <div className={`container ${styles.container}`}>
-                <h2 className={styles.title}>Let's work together?</h2>
+                <h2 className={styles.title}>Let&apos;s work together?</h2>
                 <p className={styles.description}>
-                    I am available for new projects and partnerships. Get in touch and let's turn your idea into reality using the power of Bubble.
+                    I am available for new projects and partnerships. Get in touch and let&apos;s turn your idea into reality using the power of Bubble.
                 </p>
                 <div className={styles.action}>
                     <Link href="mailto:contact@example.com" className="btn-primary">

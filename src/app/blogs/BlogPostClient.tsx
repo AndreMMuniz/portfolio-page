@@ -63,11 +63,17 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
     const [currentUrl, setCurrentUrl] = useState("");
     const { t, language, setLanguage } = useLanguage();
 
+    // Use a layout effect or effect with timeout to avoid synchronous cascading renders
     useEffect(() => {
         const mountTime = Date.now();
-        setCurrentUrl(window.location.href);
+        
+        // Defer setting state to avoid synchronous cascade warnings
+        const timeoutId = setTimeout(() => {
+            setCurrentUrl(window.location.href);
+        }, 0);
 
         return () => {
+            clearTimeout(timeoutId);
             const timeSpentSeconds = Math.round((Date.now() - mountTime) / 1000);
             trackEvent("blog_read_time", { post: post.slug, time_seconds: timeSpentSeconds });
         };
