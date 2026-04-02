@@ -6,6 +6,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import { useLanguage } from "@/components/LanguageContext";
 import { trackEvent } from "@/components/AnalyticsTracker";
+import LangGraphWorkflow from "@/components/LangGraphWorkflow";
 
 /* ──────────────────────────────────────────────────────── DATA ── */
 const PLUGINS = [
@@ -17,12 +18,12 @@ const TEMPLATES = [
   { title: "Multi-Channel CRM Chat Hub", title_pt: "Hub de Chat Multi-Canal CRM", tag: "CRM", desc: "Omni-channel customer support: WhatsApp, Intercom, and email all in one interface built on Bubble.", desc_pt: "Suporte omni-channel ao cliente: WhatsApp, Intercom e e-mail em uma única interface construída no Bubble.", imageSrc: "/crm-chat-hub.png", tags: ["Chat", "Support", "WhatsApp"], tags_pt: ["Chat", "Suporte", "WhatsApp"], href: "https://multichannel-chat-63131.bubbleapps.io/version-test" },
 ];
 
-const NEXUS_TECH = [
+const LANGGRAPH_TECH = [
   { icon: "account_tree", name: "LangGraph" },
+  { icon: "link", name: "LangChain" },
   { icon: "bolt", name: "FastAPI" },
-  { icon: "layers", name: "Next.js" },
   { icon: "api", name: "OpenAI" },
-  { icon: "cloud", name: "Cloud AI" },
+  { icon: "cloud", name: "Supabase" },
   { icon: "database", name: "PostgreSQL" },
   { icon: "terminal", name: "Python" },
 ];
@@ -254,15 +255,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Nexus AI Ops Center – Flagship */}
+              {/* Agents Orchestration – Flagship */}
               <div className="glass-panel p-8 md:p-10 border-ai-purple/20 bg-black/20 mb-16 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-r from-ai-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                   <div>
                     <div className="inline-block px-3 py-1 mb-4 rounded-full bg-ai-purple/20 text-ai-purple text-xs font-bold border border-ai-purple/30">{t("domain2.flagship")}</div>
-                    <h3 className="text-3xl font-bold text-white mb-4">Nexus AI Ops Center</h3>
+                    <h3 className="text-3xl font-bold text-white mb-4">Agents Orchestration</h3>
                     <p className="text-slate-400 mb-6 leading-relaxed">
-                      {language === "pt" ? "Um hub de operações centralizado para gerenciar múltiplos agentes LLM. Recursos incluem controle de versão de prompts, análise de custo de tokens em tempo real e um construtor de fluxo visual para sequências LangGraph." : "A centralized operations hub for managing multiple LLM agents. Features include prompt versioning, real-time token cost analysis, and a visual workflow builder for LangGraph sequences."}
+                      {t("domain2.desc")}
                     </p>
                     <ul className="space-y-3 mb-6">
                       {[t("domain2.bullet1"), t("domain2.bullet2"), t("domain2.bullet3")].map((item) => (
@@ -272,27 +273,18 @@ export default function Home() {
                         </li>
                       ))}
                     </ul>
-                    {/* Nexus Tech Stack */}
+                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-8">
-                      {NEXUS_TECH.map((t) => (
+                      {LANGGRAPH_TECH.map((t) => (
                         <span key={t.name} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ai-purple/10 border border-ai-purple/20 text-xs text-ai-purple font-medium">
                           <span className="material-symbols-outlined text-sm">{t.icon}</span>
                           {t.name}
                         </span>
                       ))}
                     </div>
-                    <a
-                      href="https://ops.munizandre.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackEvent("nexus_click")}
-                      className="inline-flex items-center gap-2 text-white font-semibold hover:text-ai-purple transition-colors w-fit"
-                    >
-                      {t("domain2.link")} <span className="material-symbols-outlined">open_in_new</span>
-                    </a>
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 aspect-video group-hover:border-ai-purple/50 group-hover:shadow-neon-purple transition-all duration-500">
-                    <Image src="/nexus-ai-ops.png" alt="Nexus AI Ops Center" fill className="object-cover" />
+                  <div className="relative aspect-video">
+                    <LangGraphWorkflow />
                   </div>
                 </div>
               </div>

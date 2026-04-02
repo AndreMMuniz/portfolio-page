@@ -27,7 +27,7 @@ export default function BubbleDeveloper() {
                 </div>
                 <h2 className={styles.title}>Bubble Developer</h2>
                 <p className={styles.subtitle}>
-                    Building scalable, pixel-perfect web applications using the world's leading visual programming platform.
+                    Building scalable, pixel-perfect web applications using the world&apos;s leading visual programming platform.
                 </p>
             </div>
 

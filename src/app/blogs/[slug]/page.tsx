@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
                 images: post.coverImage ? [post.coverImage] : [],
             },
         };
-    } catch (e) {
+    } catch {
         return {
             title: "Post Not Found",
         };
@@ -33,11 +33,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-
+    
+    let post;
     try {
-        const post = await getPostData(slug);
-        return <BlogPostClient post={post} />;
-    } catch (e) {
+        post = await getPostData(slug);
+    } catch {
         notFound();
     }
+    
+    return <BlogPostClient post={post} />;
 }

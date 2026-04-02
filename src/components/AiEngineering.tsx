@@ -1,4 +1,4 @@
-import { BrainCircuit, Cpu, Network, Sparkles, ExternalLink, Github } from 'lucide-react';
+import { BrainCircuit, Network, Sparkles, ExternalLink } from 'lucide-react';
 import styles from './AiEngineering.module.css';
 import Link from 'next/link';
 

@@ -24,7 +24,7 @@ export default function Hero() {
                     </div>
 
                     <h1 className={`${styles.title} delay-200`}>
-                        Hi, I'm <span className="text-gradient">André Muniz</span>
+                        Hi, I&apos;m <span className="text-gradient">André Muniz</span>
                     </h1>
 
                     <p className={`${styles.description} delay-300`}>
@@ -36,7 +36,7 @@ export default function Hero() {
                     <div className={`${styles.actions} delay-300`}>
                         <Link href="#contact" className="btn-primary">
                             <Mail size={18} />
-                            Let's Talk
+                            Let&apos;s Talk
                         </Link>
 
                         <Link href="https://www.linkedin.com/in/andre-muniz-31697a63/" target="_blank" rel="noopener noreferrer" className="btn-secondary">
